@@ -16,6 +16,6 @@
 
 
         //status of guest attendance(cancelled, confirmed, Attended)
-        public string? AttendanceStatus { get; set; }// unknown status at the time of biooking can be added later.
+        public string? AttendanceStatus { get; set; }// unknown status at the time of booking. Can be added later.
     }
 }
