@@ -7,14 +7,9 @@ namespace ThAmCo.Catering.Data
     {
         [Key]// unique identifier
         public int MenuId { get; set; }
-        
-        [StringLength(50)]// name of menu with 50 maximum length and can not be Null
-        public required string Name { get; set; }
-        [StringLength(500)]// maximum of 500 character
-        public string? Description { get; set; }// provides more details about menu and is optional.
-
-        //Collection of food item included in the menu
-        // many to many relationship between menu and food item using menuFoodItem as a join table.
-        public ICollection<MenuFoodItem> MenuFoodItem { get; set; } = new List<MenuFoodItem>();
+       
+        public required string MenuName { get; set; }
+        public List<FoodBooking>? FoodBookings { get; set; }
+        public List<MenuFoodItem>? MenuFoodItems { get; set; }
     }
 }

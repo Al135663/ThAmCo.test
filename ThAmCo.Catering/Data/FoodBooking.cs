@@ -10,13 +10,12 @@ namespace ThAmCo.Catering.Data
         [Key]
         public int FoodBookinId { get; set; }
 
-        public int EventId { get; set; }// liks booking to specific event.
+        public int ClientReferenceId { get; set; }// liks booking to specific event.
 
+        public int NumberOfGuests { get; set; }
         public int MenuId { get; set; }// Identifier of the menu been booked.
 
-        [Required]
-        public DateTime DateBooked { get; set; }// Date when booking was made.
-        public Menu? Menu { get; set; }  // Navigation property to the menu that is part of booking.
-        // It is nullable, Booking can be made whitout the menu initially and menu is assigned later.
+        
+        public Menu? Menu { get; set; }
     }
 }
