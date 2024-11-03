@@ -16,7 +16,6 @@ namespace ThAmCo.Catering.Data
 
 
         public List<MenuFoodItem>? MenuFoodItems { get; set; }
-
-       
+        public object MenuFoodItem { get; internal set; }
     }
 }
