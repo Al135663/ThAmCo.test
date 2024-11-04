@@ -12,7 +12,7 @@ namespace ThAmCo.Events.Data
         [StringLength(100)]
         public required string Name { get; set; }// Required guest name with maximum length of 100 character.
 
-        [StringLength(200)]
+        [StringLength(100)]
         public string? ContactDetails { get; set; }// guest contact details such as email, phone number, address. Optional
     }
 }
