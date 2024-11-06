@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ThAmCo.Catering.Data;
 
-namespace ThAmCo.Catering
+namespace ThAmCo.Catering.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
