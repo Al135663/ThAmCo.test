@@ -46,7 +46,7 @@ namespace ThAmCo.Catering.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFoodBooking(int id, FoodBooking foodBooking)
         {
-            if (id != foodBooking.FoodBookinId)
+            if (id != foodBooking.FoodBookingId)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace ThAmCo.Catering.Controllers
             _context.FoodBookings.Add(foodBooking);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFoodBooking", new { id = foodBooking.FoodBookinId }, foodBooking);
+            return CreatedAtAction("GetFoodBooking", new { id = foodBooking.FoodBookingId }, foodBooking);
         }
 
         // DELETE: api/FoodBookings/5
@@ -101,7 +101,7 @@ namespace ThAmCo.Catering.Controllers
 
         private bool FoodBookingExists(int id)
         {
-            return _context.FoodBookings.Any(e => e.FoodBookinId == id);
+            return _context.FoodBookings.Any(e => e.FoodBookingId == id);
         }
     }
 }

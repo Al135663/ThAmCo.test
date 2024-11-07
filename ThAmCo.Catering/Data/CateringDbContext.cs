@@ -118,9 +118,9 @@ namespace ThAmCo.Catering.Data
 
             // Seed data for FoodBookings
             builder.Entity<FoodBooking>().HasData(
-                new FoodBooking { FoodBookinId = 1, ClientReferenceId = 101, NumberOfGuests = 20, MenuId = 1 },
-                new FoodBooking { FoodBookinId = 2, ClientReferenceId = 102, NumberOfGuests = 15, MenuId = 2 },
-                new FoodBooking { FoodBookinId = 3, ClientReferenceId = 103, NumberOfGuests = 50, MenuId = 3 }
+                new FoodBooking { FoodBookingId = 1, ClientReferenceId = 101, NumberOfGuests = 20, MenuId = 1 },
+                new FoodBooking { FoodBookingId = 2, ClientReferenceId = 102, NumberOfGuests = 15, MenuId = 2 },
+                new FoodBooking { FoodBookingId = 3, ClientReferenceId = 103, NumberOfGuests = 50, MenuId = 3 }
             );
         }
 

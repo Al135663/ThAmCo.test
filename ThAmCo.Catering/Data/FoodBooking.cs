@@ -8,7 +8,7 @@ namespace ThAmCo.Catering.Data
     {
         //primary key. Unique identifier for each FoodBooking
         [Key]
-        public int FoodBookinId { get; set; }
+        public int FoodBookingId { get; set; }
 
         public int ClientReferenceId { get; set; } // Represents a reference to the client or event booking.
 

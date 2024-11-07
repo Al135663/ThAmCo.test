@@ -10,7 +10,7 @@ using ThAmCo.Catering.Data;
 namespace ThAmCo.Catering.Data.Migrations
 {
     [DbContext(typeof(CateringDbContext))]
-    [Migration("20241107190537_InitialCreate")]
+    [Migration("20241107212058_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -21,7 +21,7 @@ namespace ThAmCo.Catering.Data.Migrations
 
             modelBuilder.Entity("ThAmCo.Catering.Data.FoodBooking", b =>
                 {
-                    b.Property<int>("FoodBookinId")
+                    b.Property<int>("FoodBookingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -34,7 +34,7 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.Property<int>("NumberOfGuests")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("FoodBookinId");
+                    b.HasKey("FoodBookingId");
 
                     b.HasIndex("MenuId");
 
@@ -43,21 +43,21 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.HasData(
                         new
                         {
-                            FoodBookinId = 1,
+                            FoodBookingId = 1,
                             ClientReferenceId = 101,
                             MenuId = 1,
                             NumberOfGuests = 20
                         },
                         new
                         {
-                            FoodBookinId = 2,
+                            FoodBookingId = 2,
                             ClientReferenceId = 102,
                             MenuId = 2,
                             NumberOfGuests = 15
                         },
                         new
                         {
-                            FoodBookinId = 3,
+                            FoodBookingId = 3,
                             ClientReferenceId = 103,
                             MenuId = 3,
                             NumberOfGuests = 50
