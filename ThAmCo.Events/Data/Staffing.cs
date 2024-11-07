@@ -1,16 +1,27 @@
-﻿namespace ThAmCo.Events.Data
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ThAmCo.Events.Data
 {
-    //this class represents staff assignments to the events.
-    // junction table establishing many to many relationship between Events and Staff.
+    // Represents the assignment of a staff member to an event.
     public class Staffing
     {
-        public int StaffId { get; set; }// Foreign key referencing associating staff
+        // Primary key for the Staffing entity.
+        [Key]
+        public int StaffingId { get; set; }
 
-        public required Staff Staff { get; set; }// Required, Navigation property to the staff member assigned to the events. 
+        // Foreign key referencing the Staff.
+        public int StaffId { get; set; }
 
+        // Foreign key referencing the Event.
+        public int EventId { get; set; }
 
-        public int EventId { get; set; }//Foreign key referencing the associated event.
+        // Navigation property to the Staff entity.
+        [ForeignKey("StaffId")]
+        public required Staff Staff { get; set; }
 
-        public required Event Event { get; set; }//Navigation property of the event that staff member is assigned to.(non-nullable)
+        // Navigation property to the Event entity.
+        [ForeignKey("EventId")]
+        public required Event Event { get; set; }
     }
 }

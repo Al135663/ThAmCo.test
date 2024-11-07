@@ -1,18 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ThAmCo.Events.Data
 {
-    //Represent guest attending ThAmCo events, containing guests personal information
+    // Represents a guest attending events.
     public class Guest
     {
+        // Primary key for the Guest entity.
         [Key]
-        public int GuestId { get; set; }// unique identifier for each guest
+        public int GuestId { get; set; }
 
-        [StringLength(100)]
-        public required string Name { get; set; }// Required guest name with maximum length of 100 character.
+        // Name of the guest, required.
+      
+        public required string Name { get; set; }
 
-        [StringLength(100)]
-        public string? ContactDetails { get; set; }// guest contact details such as email, phone number, address. Optional
+        // Email address of the guest.
+        public string? Email { get; set; }
+
+        // List of bookings associated with this guest.
+        public List<GuestBooking> GuestBookings { get; set; } = new List<GuestBooking>();
     }
 }

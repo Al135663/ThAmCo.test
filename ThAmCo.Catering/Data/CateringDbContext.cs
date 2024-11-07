@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NuGet.DependencyResolver;
+using System.Reflection.Emit;
 
 
 namespace ThAmCo.Catering.Data
@@ -69,9 +70,40 @@ namespace ThAmCo.Catering.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
 
-           
 
 
+
+            // Seed data for Menus
+            builder.Entity<Menu>().HasData(
+                new Menu { MenuId = 1, MenuName = "Italian Feast" },
+                new Menu { MenuId = 2, MenuName = "Vegetarian Delight" },
+                new Menu { MenuId = 3, MenuName = "BBQ Extravaganza" }
+            );
+
+            // Seed data for FoodItems
+            builder.Entity<FoodItem>().HasData(
+                new FoodItem { FoodItemId = 1, Description = "Spaghetti Carbonara", UnitPrice = 12.99m },
+                new FoodItem { FoodItemId = 2, Description = "Caesar Salad", UnitPrice = 8.99m },
+                new FoodItem { FoodItemId = 3, Description = "Grilled Veggie Skewers", UnitPrice = 10.50m },
+                new FoodItem { FoodItemId = 4, Description = "BBQ Ribs", UnitPrice = 15.99m },
+                new FoodItem { FoodItemId = 5, Description = "Garlic Bread", UnitPrice = 4.99m }
+            );
+
+            // Seed data for MenuFoodItems
+            builder.Entity<MenuFoodItem>().HasData(
+                new MenuFoodItem { MenuId = 1, FoodItemId = 1 }, // Italian Feast -> Spaghetti Carbonara
+                new MenuFoodItem { MenuId = 1, FoodItemId = 5 }, // Italian Feast -> Garlic Bread
+                new MenuFoodItem { MenuId = 2, FoodItemId = 3 }, // Vegetarian Delight -> Grilled Veggie Skewers
+                new MenuFoodItem { MenuId = 2, FoodItemId = 2 }, // Vegetarian Delight -> Caesar Salad
+                new MenuFoodItem { MenuId = 3, FoodItemId = 4 }  // BBQ Extravaganza -> BBQ Ribs
+            );
+
+            // Seed data for FoodBookings
+            builder.Entity<FoodBooking>().HasData(
+                new FoodBooking { FoodBookinId = 1, ClientReferenceId = 101, NumberOfGuests = 20, MenuId = 1 },
+                new FoodBooking { FoodBookinId = 2, ClientReferenceId = 102, NumberOfGuests = 15, MenuId = 2 },
+                new FoodBooking { FoodBookinId = 3, ClientReferenceId = 103, NumberOfGuests = 50, MenuId = 3 }
+            );
         }
 
 

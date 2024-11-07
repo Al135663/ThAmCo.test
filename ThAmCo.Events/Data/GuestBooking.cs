@@ -1,21 +1,27 @@
-﻿namespace ThAmCo.Events.Data
-{
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-    //represent the booking of a guest for a event.
-    //this is a junction table establishing the many to many relationship between guests and Events.
+namespace ThAmCo.Events.Data
+{
+    // Represents a booking record for a guest at an event.
     public class GuestBooking
     {
-        public int GuestId {  get; set; }// Foreign key referencing the associating guest.
+        // Primary key for the GuestBooking entity.
+        [Key]
+        public int BookingId { get; set; }
 
-        //navigation property to the guest attending the event (non_nullable)
-        public required Guest Guest {  get; set; } 
+        // Foreign key referencing the Guest.
+        public required string GuestId { get; set; }
 
-        public int EventId { get; set; }// Foreign key referencing associated events
+        // Foreign key referencing the Event.
+        public int EventId { get; set; }
 
-        public required Event Event { get; set; }// navigation property to the event that the guest is booked.
+        // Navigation property to the Guest entity.
+        [ForeignKey("GuestId")]
+        public required Guest Guest { get; set; }
 
-
-        //status of guest attendance(cancelled, confirmed, Attended)
-        public string? AttendanceStatus { get; set; }// unknown status at the time of booking. Can be added later.
+        // Navigation property to the Event entity.
+        [ForeignKey("EventId")]
+        public required Event Event { get; set; }
     }
 }
