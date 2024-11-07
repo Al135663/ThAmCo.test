@@ -29,3 +29,10 @@ Key Design Decisions:
 
    Decision: Fluent API was selected for defining relationships to allow for composite keys and custom delete behaviors.
 
+-------------------------------------------------------
+
+MenusController constructor is defined with a parameter of type CateringDbContext. and  initializes the _context field with an instance of
+CateringDbContext, which is provided via Dependency Injection. This _context field is used to interact with the database for performing 
+CRUD operations on the Menus table.
+
+==============================================================
