@@ -10,7 +10,7 @@ using ThAmCo.Catering.Data;
 namespace ThAmCo.Catering.Data.Migrations
 {
     [DbContext(typeof(CateringDbContext))]
-    [Migration("20241103232755_InitialCreate")]
+    [Migration("20241107190537_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,6 +39,29 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.HasIndex("MenuId");
 
                     b.ToTable("FoodBookings");
+
+                    b.HasData(
+                        new
+                        {
+                            FoodBookinId = 1,
+                            ClientReferenceId = 101,
+                            MenuId = 1,
+                            NumberOfGuests = 20
+                        },
+                        new
+                        {
+                            FoodBookinId = 2,
+                            ClientReferenceId = 102,
+                            MenuId = 2,
+                            NumberOfGuests = 15
+                        },
+                        new
+                        {
+                            FoodBookinId = 3,
+                            ClientReferenceId = 103,
+                            MenuId = 3,
+                            NumberOfGuests = 50
+                        });
                 });
 
             modelBuilder.Entity("ThAmCo.Catering.Data.FoodItem", b =>
@@ -57,6 +80,38 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.HasKey("FoodItemId");
 
                     b.ToTable("FoodItems");
+
+                    b.HasData(
+                        new
+                        {
+                            FoodItemId = 1,
+                            Description = "Spaghetti Carbonara",
+                            UnitPrice = 12.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 2,
+                            Description = "Caesar Salad",
+                            UnitPrice = 8.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 3,
+                            Description = "Grilled Veggie Skewers",
+                            UnitPrice = 10.50m
+                        },
+                        new
+                        {
+                            FoodItemId = 4,
+                            Description = "BBQ Ribs",
+                            UnitPrice = 15.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 5,
+                            Description = "Garlic Bread",
+                            UnitPrice = 4.99m
+                        });
                 });
 
             modelBuilder.Entity("ThAmCo.Catering.Data.Menu", b =>
@@ -72,6 +127,23 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.HasKey("MenuId");
 
                     b.ToTable("Menus");
+
+                    b.HasData(
+                        new
+                        {
+                            MenuId = 1,
+                            MenuName = "Italian Feast"
+                        },
+                        new
+                        {
+                            MenuId = 2,
+                            MenuName = "Vegetarian Delight"
+                        },
+                        new
+                        {
+                            MenuId = 3,
+                            MenuName = "BBQ Extravaganza"
+                        });
                 });
 
             modelBuilder.Entity("ThAmCo.Catering.Data.MenuFoodItem", b =>
@@ -87,6 +159,33 @@ namespace ThAmCo.Catering.Data.Migrations
                     b.HasIndex("FoodItemId");
 
                     b.ToTable("MenuFoodItems");
+
+                    b.HasData(
+                        new
+                        {
+                            MenuId = 1,
+                            FoodItemId = 1
+                        },
+                        new
+                        {
+                            MenuId = 1,
+                            FoodItemId = 5
+                        },
+                        new
+                        {
+                            MenuId = 2,
+                            FoodItemId = 3
+                        },
+                        new
+                        {
+                            MenuId = 2,
+                            FoodItemId = 2
+                        },
+                        new
+                        {
+                            MenuId = 3,
+                            FoodItemId = 4
+                        });
                 });
 
             modelBuilder.Entity("ThAmCo.Catering.Data.FoodBooking", b =>

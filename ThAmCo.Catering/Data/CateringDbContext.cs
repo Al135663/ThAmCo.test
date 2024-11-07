@@ -12,7 +12,7 @@ namespace ThAmCo.Catering.Data
     public class CateringDbContext : DbContext
     {
         // Constructor for dependency injection, allowing configuration to be passed in.
-        public CateringDbContext(DbContextOptions<CateringDbContext> options) : base(options) { }
+       // public CateringDbContext(DbContextOptions<CateringDbContext> options) : base(options) { }
 
 
         // DbSet for FoodItem entity, representing a table of food items in the database.
