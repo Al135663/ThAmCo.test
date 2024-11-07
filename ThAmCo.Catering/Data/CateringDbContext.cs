@@ -5,21 +5,36 @@ using System.Reflection.Emit;
 
 namespace ThAmCo.Catering.Data
 {
+
+    // Represents the database context for the catering system, including entities like FoodItems, Menus, MenuFoodItems, and FoodBookings.
+    // This context manages connections to the SQLite database and configures relationships among entities.
+
     public class CateringDbContext : DbContext
     {
+        // Constructor for dependency injection, allowing configuration to be passed in.
         public CateringDbContext(DbContextOptions<CateringDbContext> options) : base(options) { }
-        
+
+
+        // DbSet for FoodItem entity, representing a table of food items in the database.
         public DbSet<FoodItem> FoodItems { get; set; }
 
+
+        // DbSet for Menu entity, representing a table of menus in the database.
         public DbSet<Menu> Menus { get; set; }
 
+
+        // DbSet for MenuFoodItem entity, representing a join table linking menus and food items.
         public DbSet<MenuFoodItem> MenuFoodItems { get; set; }
 
+
+        // DbSet for FoodBooking entity, representing a table of food bookings associated with events.
         public DbSet<FoodBooking> FoodBookings { get; set; }
 
+
+        // Property to hold the database file path for SQLite.
         private string DbPath { get; set; } = string.Empty;
 
-        // Constructor to set-up the database path & name for SQLite.
+        // Default Constructor to set-up the database path & name for SQLite.
         public CateringDbContext()
         {
             var folder = Environment.SpecialFolder.MyDocuments;
@@ -28,18 +43,21 @@ namespace ThAmCo.Catering.Data
         }
 
 
-        // confiquring SQLite as the database engine
+        // Configures SQLite as the database engine using the database path specified in DbPath.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
         }
 
+
+        // Configures entity relationships and keys using the Fluent API.
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            // Define composite key for the join table MenuFoodItem(many to many relationship)
+
+            // Defines a composite primary key for the MenuFoodItem entity (many-to-many relationship between Menu and FoodItem).
             builder.Entity<MenuFoodItem>()
                 .HasKey(mf => new { mf.MenuId, mf.FoodItemId });
 
@@ -59,7 +77,7 @@ namespace ThAmCo.Catering.Data
                 .HasMany(fi => fi.MenuFoodItems)
                 .WithOne(mf => mf.FoodItem)
                 .HasForeignKey(mf => mf.FoodItemId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);  // Restricts deletion if related records exist.
 
 
             //Confiqure one to many relationship : a Menu can have many foodbookings
@@ -67,7 +85,7 @@ namespace ThAmCo.Catering.Data
                 .HasMany(m => m.FoodBookings)
                 .WithOne(fb => fb.Menu)
                 .HasForeignKey(fb => fb.MenuId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict); // Restricts deletion if related records exist in FoodBookings.
 
 
 

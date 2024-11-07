@@ -8,8 +8,17 @@ namespace ThAmCo.Catering.Data
         [Key]// unique identifier
         public int MenuId { get; set; }
        
-        public required string MenuName { get; set; }
+        public required string MenuName { get; set; }// The name of the menu, required for every instance of menu.
+
+
+        // Navigation property representing bookings associated with this menu.
+        // Nullable to allow for cases where no bookings have been made.
         public List<FoodBooking>? FoodBookings { get; set; }
+
+
+        // Navigation property representing the collection of food items associated with this menu.
+        // Each MenuFoodItem links a specific food item to this menu.
+        // Nullable to allow for cases where no food items are initially linked.
         public List<MenuFoodItem>? MenuFoodItems { get; set; }
     }
 }

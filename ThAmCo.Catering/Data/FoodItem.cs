@@ -14,7 +14,8 @@ namespace ThAmCo.Catering.Data
         [Range(0, 1000)] // setting range to prevent any invalid entry such as negetive value
         public decimal UnitPrice { get; set; } // Using decimal for accuracy
 
-
+        // Navigation property representing the many-to-many relationship with Menu.
+        // This list links the food item to various menus through the MenuFoodItem join table.
         public List<MenuFoodItem>? MenuFoodItems { get; set; }
     }
 }
