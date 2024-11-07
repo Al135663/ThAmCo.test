@@ -95,17 +95,24 @@ namespace ThAmCo.Catering.Data
             builder.Entity<Menu>().HasData(
                 new Menu { MenuId = 1, MenuName = "Italian Feast" },
                 new Menu { MenuId = 2, MenuName = "Vegetarian Delight" },
-                new Menu { MenuId = 3, MenuName = "BBQ Extravaganza" }
+                new Menu { MenuId = 3, MenuName = "BBQ Extravaganza" },
+                new Menu { MenuId = 4, MenuName = "Asian Fusion" },
+                new Menu { MenuId = 5, MenuName = "Classic American" }
             );
 
             // Seed data for FoodItems
             builder.Entity<FoodItem>().HasData(
-                new FoodItem { FoodItemId = 1, Description = "Spaghetti Carbonara", UnitPrice = 12.99m },
-                new FoodItem { FoodItemId = 2, Description = "Caesar Salad", UnitPrice = 8.99m },
-                new FoodItem { FoodItemId = 3, Description = "Grilled Veggie Skewers", UnitPrice = 10.50m },
-                new FoodItem { FoodItemId = 4, Description = "BBQ Ribs", UnitPrice = 15.99m },
-                new FoodItem { FoodItemId = 5, Description = "Garlic Bread", UnitPrice = 4.99m }
-            );
+    new FoodItem { FoodItemId = 1, Description = "Spaghetti Carbonara", UnitPrice = 12.99m },
+    new FoodItem { FoodItemId = 2, Description = "Caesar Salad", UnitPrice = 8.99m },
+    new FoodItem { FoodItemId = 3, Description = "Grilled Veggie Skewers", UnitPrice = 10.50m },
+    new FoodItem { FoodItemId = 4, Description = "BBQ Ribs", UnitPrice = 15.99m },
+    new FoodItem { FoodItemId = 5, Description = "Garlic Bread", UnitPrice = 4.99m },
+    new FoodItem { FoodItemId = 6, Description = "Sushi Platter", UnitPrice = 18.99m },
+    new FoodItem { FoodItemId = 7, Description = "Miso Soup", UnitPrice = 3.99m },
+    new FoodItem { FoodItemId = 8, Description = "Bacon Cheeseburger", UnitPrice = 12.49m },
+    new FoodItem { FoodItemId = 9, Description = "Fries", UnitPrice = 2.99m },
+    new FoodItem { FoodItemId = 10, Description = "Steak and Eggs", UnitPrice = 17.99m }
+);
 
             // Seed data for MenuFoodItems
             builder.Entity<MenuFoodItem>().HasData(
@@ -113,15 +120,24 @@ namespace ThAmCo.Catering.Data
                 new MenuFoodItem { MenuId = 1, FoodItemId = 5 }, // Italian Feast -> Garlic Bread
                 new MenuFoodItem { MenuId = 2, FoodItemId = 3 }, // Vegetarian Delight -> Grilled Veggie Skewers
                 new MenuFoodItem { MenuId = 2, FoodItemId = 2 }, // Vegetarian Delight -> Caesar Salad
-                new MenuFoodItem { MenuId = 3, FoodItemId = 4 }  // BBQ Extravaganza -> BBQ Ribs
-            );
+                new MenuFoodItem { MenuId = 3, FoodItemId = 4 }, // BBQ Extravaganza -> BBQ Ribs
+                new MenuFoodItem { MenuId = 4, FoodItemId = 6 }, // Asian Fusion -> Sushi Platter
+                new MenuFoodItem { MenuId = 4, FoodItemId = 7 }, // Asian Fusion -> Miso Soup
+                new MenuFoodItem { MenuId = 5, FoodItemId = 8 }, // Classic American -> Bacon Cheeseburger
+                new MenuFoodItem { MenuId = 5, FoodItemId = 9 }, // Classic American -> Fries
+                new MenuFoodItem { MenuId = 5, FoodItemId = 10 } // Classic American -> Steak and Eggs
+);
 
             // Seed data for FoodBookings
             builder.Entity<FoodBooking>().HasData(
-                new FoodBooking { FoodBookingId = 1, ClientReferenceId = 101, NumberOfGuests = 20, MenuId = 1 },
-                new FoodBooking { FoodBookingId = 2, ClientReferenceId = 102, NumberOfGuests = 15, MenuId = 2 },
-                new FoodBooking { FoodBookingId = 3, ClientReferenceId = 103, NumberOfGuests = 50, MenuId = 3 }
-            );
+               new FoodBooking { FoodBookingId = 1, ClientReferenceId = 101, NumberOfGuests = 20, MenuId = 1 },
+               new FoodBooking { FoodBookingId = 2, ClientReferenceId = 102, NumberOfGuests = 15, MenuId = 2 },
+               new FoodBooking { FoodBookingId = 3, ClientReferenceId = 103, NumberOfGuests = 50, MenuId = 3 },
+               new FoodBooking { FoodBookingId = 4, ClientReferenceId = 104, NumberOfGuests = 30, MenuId = 4 },
+               new FoodBooking { FoodBookingId = 5, ClientReferenceId = 105, NumberOfGuests = 25, MenuId = 5 },
+               new FoodBooking { FoodBookingId = 6, ClientReferenceId = 106, NumberOfGuests = 10, MenuId = 1 },
+               new FoodBooking { FoodBookingId = 7, ClientReferenceId = 107, NumberOfGuests = 40, MenuId = 2 }
+);
         }
 
 

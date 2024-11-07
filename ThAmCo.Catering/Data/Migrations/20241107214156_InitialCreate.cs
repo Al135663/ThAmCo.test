@@ -93,7 +93,12 @@ namespace ThAmCo.Catering.Data.Migrations
                     { 2, "Caesar Salad", 8.99m },
                     { 3, "Grilled Veggie Skewers", 10.50m },
                     { 4, "BBQ Ribs", 15.99m },
-                    { 5, "Garlic Bread", 4.99m }
+                    { 5, "Garlic Bread", 4.99m },
+                    { 6, "Sushi Platter", 18.99m },
+                    { 7, "Miso Soup", 3.99m },
+                    { 8, "Bacon Cheeseburger", 12.49m },
+                    { 9, "Fries", 2.99m },
+                    { 10, "Steak and Eggs", 17.99m }
                 });
 
             migrationBuilder.InsertData(
@@ -103,7 +108,9 @@ namespace ThAmCo.Catering.Data.Migrations
                 {
                     { 1, "Italian Feast" },
                     { 2, "Vegetarian Delight" },
-                    { 3, "BBQ Extravaganza" }
+                    { 3, "BBQ Extravaganza" },
+                    { 4, "Asian Fusion" },
+                    { 5, "Classic American" }
                 });
 
             migrationBuilder.InsertData(
@@ -113,7 +120,11 @@ namespace ThAmCo.Catering.Data.Migrations
                 {
                     { 1, 101, 1, 20 },
                     { 2, 102, 2, 15 },
-                    { 3, 103, 3, 50 }
+                    { 3, 103, 3, 50 },
+                    { 4, 104, 4, 30 },
+                    { 5, 105, 5, 25 },
+                    { 6, 106, 1, 10 },
+                    { 7, 107, 2, 40 }
                 });
 
             migrationBuilder.InsertData(
@@ -125,7 +136,12 @@ namespace ThAmCo.Catering.Data.Migrations
                     { 5, 1 },
                     { 2, 2 },
                     { 3, 2 },
-                    { 4, 3 }
+                    { 4, 3 },
+                    { 6, 4 },
+                    { 7, 4 },
+                    { 8, 5 },
+                    { 9, 5 },
+                    { 10, 5 }
                 });
 
             migrationBuilder.CreateIndex(

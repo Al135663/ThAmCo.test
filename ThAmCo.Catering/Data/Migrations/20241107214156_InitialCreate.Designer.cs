@@ -10,7 +10,7 @@ using ThAmCo.Catering.Data;
 namespace ThAmCo.Catering.Data.Migrations
 {
     [DbContext(typeof(CateringDbContext))]
-    [Migration("20241107212058_InitialCreate")]
+    [Migration("20241107214156_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -61,6 +61,34 @@ namespace ThAmCo.Catering.Data.Migrations
                             ClientReferenceId = 103,
                             MenuId = 3,
                             NumberOfGuests = 50
+                        },
+                        new
+                        {
+                            FoodBookingId = 4,
+                            ClientReferenceId = 104,
+                            MenuId = 4,
+                            NumberOfGuests = 30
+                        },
+                        new
+                        {
+                            FoodBookingId = 5,
+                            ClientReferenceId = 105,
+                            MenuId = 5,
+                            NumberOfGuests = 25
+                        },
+                        new
+                        {
+                            FoodBookingId = 6,
+                            ClientReferenceId = 106,
+                            MenuId = 1,
+                            NumberOfGuests = 10
+                        },
+                        new
+                        {
+                            FoodBookingId = 7,
+                            ClientReferenceId = 107,
+                            MenuId = 2,
+                            NumberOfGuests = 40
                         });
                 });
 
@@ -111,6 +139,36 @@ namespace ThAmCo.Catering.Data.Migrations
                             FoodItemId = 5,
                             Description = "Garlic Bread",
                             UnitPrice = 4.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 6,
+                            Description = "Sushi Platter",
+                            UnitPrice = 18.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 7,
+                            Description = "Miso Soup",
+                            UnitPrice = 3.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 8,
+                            Description = "Bacon Cheeseburger",
+                            UnitPrice = 12.49m
+                        },
+                        new
+                        {
+                            FoodItemId = 9,
+                            Description = "Fries",
+                            UnitPrice = 2.99m
+                        },
+                        new
+                        {
+                            FoodItemId = 10,
+                            Description = "Steak and Eggs",
+                            UnitPrice = 17.99m
                         });
                 });
 
@@ -143,6 +201,16 @@ namespace ThAmCo.Catering.Data.Migrations
                         {
                             MenuId = 3,
                             MenuName = "BBQ Extravaganza"
+                        },
+                        new
+                        {
+                            MenuId = 4,
+                            MenuName = "Asian Fusion"
+                        },
+                        new
+                        {
+                            MenuId = 5,
+                            MenuName = "Classic American"
                         });
                 });
 
@@ -185,6 +253,31 @@ namespace ThAmCo.Catering.Data.Migrations
                         {
                             MenuId = 3,
                             FoodItemId = 4
+                        },
+                        new
+                        {
+                            MenuId = 4,
+                            FoodItemId = 6
+                        },
+                        new
+                        {
+                            MenuId = 4,
+                            FoodItemId = 7
+                        },
+                        new
+                        {
+                            MenuId = 5,
+                            FoodItemId = 8
+                        },
+                        new
+                        {
+                            MenuId = 5,
+                            FoodItemId = 9
+                        },
+                        new
+                        {
+                            MenuId = 5,
+                            FoodItemId = 10
                         });
                 });
 
