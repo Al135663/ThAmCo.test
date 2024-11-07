@@ -31,3 +31,29 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+
+/*  Standalone testing. comment out app.Run()
+var CateringDbContext = new CateringDbContext();    // Create database context
+
+ListMenu(CateringDbContext);// calling listmenu method
+
+
+// Method to List Menu from the database
+static void ListMenu(CateringDbContext dbContext)
+{
+    // Load list of menu from the database
+    var menuList = dbContext.Menus.ToList();
+
+    Console.WriteLine("Menu List\n");
+
+    // Display list of menus from the memory object 
+    foreach (var menu in menuList)
+    {
+        Console.WriteLine($"{menu.MenuId} {menu.MenuName}");
+    }
+    Console.WriteLine();
+}
+*/
