@@ -9,18 +9,17 @@ namespace ThAmCo.Catering.Data
     public class MenuFoodItem
     {
 
-      
+
+
         [Key]
-        public int MenuId { get; set; }// foreign key referencing the associated fooditem.
-        
+        public int MenuId { get; set; } // Foreign key referencing the associated Menu.
+
         [Key]
         public int FoodItemId { get; set; } // Foreign key referencing the associated FoodItem.
 
-
-        //// Navigation property to the related Menu entity.
+        // Navigation property to the related Menu entity.
         // Nullable to allow flexibility in cases where the Menu may not be loaded.
         public Menu? Menu { get; set; }
-
 
         // Navigation property to the related FoodItem entity.
         // Nullable to allow flexibility in cases where the FoodItem may not be loaded.
